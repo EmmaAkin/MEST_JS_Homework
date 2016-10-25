@@ -71,18 +71,27 @@ pizza.price = 200;
 
 var pizza = Object.create();
 /*
- *  5. Build a Animal object by using object constructor function, and add at least two method to prototype,
+ *  5. Build a Animal object by using object constructor function, and add at least
+        two method to prototype,
  *     create two animals from it.
  */
 
-function Animal (shape, color, price, currency) {
-    this.feet = shape;
+function Animal (name, feet, color, habitat) {
+    this.name= name;
+    this.feet = feet;
     this.color = color;
+    this.habitat = habitat;
 
-    this.price = function (price, currency) {
-        this.priceCurrency = price + currency ;
-    };
+     speak: function(things) {
+        return 'My name is ' + this.name + ' and I like ' + things;
+    }
 }
+
+var duck = new Animal("duck", 2,"brown","land", "waak" );
+
+duck.speak("waak");
+
+Animal.prototype.wild = false;
 
 
 /*
@@ -104,15 +113,17 @@ function menuSelection (input){
     }
 
 function menuSelectionSwitch(input){
-    case input
-         when 1
-        console.log("Banku");
+    switch(input){
+    case 1:console.log("Banku");
+    break;
 
-        when 2
-        console.log("Kenkey");
+    case 2:console.log("Kenkey");
+    break;
 
-        when 3
-        console.log("Rice")
+    case 3:console.log("Rice");
+    break;
+
+    default: console.log("We do not have that on our Menu");
     }
 
 
@@ -124,7 +135,32 @@ menuSelection(1);
   loop and conditions.
  */
 
+var studentScores = [50, 67, 80, 90, 100, 30, 88, 68];
+var sum = 0;
+function addArrayElement(array){
+
+    for (i = 0; i < array.length; i++) {
+    sum += array[i] ;
+}
+console.log(sum);
+}
+addArrayElement(studentScores);
+
 /*
  * 8. var studentScores = [50, 67, 80, 90, 100, 30, 88, 68]; write a program by using studentScores array ,
  array.forEach and conditions.
  */
+var studentScores = [50, 67, 80, 90, 100, 30, 88, 68];
+var sum = 1;
+function multipleArrayElement(array){
+
+    array.forEach(function(entry) {
+    sum = sum*entry;
+});
+console.log(sum);
+}
+multipleArrayElement(studentScores);
+
+
+
+
